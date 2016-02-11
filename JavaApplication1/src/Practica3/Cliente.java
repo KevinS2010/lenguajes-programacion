@@ -9,6 +9,9 @@ public class Cliente {
      this.email=email;
      this.edad=edad;
  }
+ public Cliente(){
+     
+ }
 
     /**
      * @return the email
@@ -34,7 +37,9 @@ public class Cliente {
     /**
      * @param edad the edad to set
      */
-    public void setEdad(int edad) {
+    public void setEdad(int edad)throws ValorNoNegativoException{
+        ValidarEdad validar=new ValidarEdad();
+        validar.checarEdadNegativa(edad);
         this.edad = edad;
     }
 }
