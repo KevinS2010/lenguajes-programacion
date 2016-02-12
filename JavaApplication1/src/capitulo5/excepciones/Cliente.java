@@ -1,4 +1,3 @@
-
 package capitulo5.excepciones;
 
 
@@ -7,6 +6,7 @@ public class Cliente {
     private int edad;
 
     public Cliente() {
+    
     }
     /**
      * 
@@ -47,9 +47,9 @@ public class Cliente {
     /**
      * @param edad the edad to set
      */
-    public void setEdad(int edad) throws ValorNoNegativoException {
-        ValidarEdad validar=new ValidarEdad();
-        validar.checarEdadNegativa(edad);
+    public void setEdad(int edad) throws ValorNoNegativoException, MenorDeEdadException {
+        ValidarEdad.checarEdadNegativa(edad);
+        ValidarEdad.checarMenorEdad(edad);
         this.edad = edad;
     }
     
