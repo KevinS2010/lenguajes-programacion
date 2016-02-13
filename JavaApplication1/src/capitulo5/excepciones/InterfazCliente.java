@@ -129,6 +129,10 @@ public class InterfazCliente extends javax.swing.JFrame {
             etiquetaResultado.setText(ex.getMessage());
         }catch(MenorDeEdadException e){
             etiquetaResultado.setText(e.getMessage());
+        }catch(checarArrobaException exe){
+            etiquetaResultado.setText(exe.getMessage());
+        }catch(ChecarPuntoComException exep){
+            etiquetaResultado.setText(exep.getMessage());
         }finally{
             System.out.println("Este siempre se ejcuta se lance o no la e");
         }

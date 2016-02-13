@@ -33,7 +33,9 @@ public class Cliente {
      * que va a ser el email que le vas asignar al cliente
      * @param email Aqui debes de poner el String correspondiente al email
      */
-    public void setEmail(String email) {
+    public void setEmail(String email)throws checarArrobaException,ChecarPuntoComException{
+        ValidarEmail.revisarArroba(email);
+        ValidarEmail.revisarPunto(email);
         this.email = email;
     }
 
@@ -52,5 +54,6 @@ public class Cliente {
         ValidarEdad.checarMenorEdad(edad);
         this.edad = edad;
     }
+    
     
 }
