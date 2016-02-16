@@ -5,6 +5,9 @@
  */
 package capitulo8.inputoutput;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author T-101
@@ -32,6 +35,7 @@ public class Clima extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         etiquetaHora = new javax.swing.JTextField();
         etiquetaTemperatura = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -45,6 +49,13 @@ public class Clima extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Consultar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -55,9 +66,11 @@ public class Clima extends javax.swing.JFrame {
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
                 .addGap(54, 54, 54)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(etiquetaHora, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                    .addComponent(etiquetaTemperatura))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(etiquetaHora, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                        .addComponent(etiquetaTemperatura)))
                 .addContainerGap(81, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -71,7 +84,9 @@ public class Clima extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(etiquetaTemperatura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(188, Short.MAX_VALUE))
+                .addGap(57, 57, 57)
+                .addComponent(jButton1)
+                .addContainerGap(108, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,8 +105,19 @@ public class Clima extends javax.swing.JFrame {
 
     private void etiquetaHoraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_etiquetaHoraActionPerformed
         // TODO add your handling code here:
-        etiquetaHora.setText(null);
+        
     }//GEN-LAST:event_etiquetaHoraActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Consultas con=new Consultas();
+        try {
+            etiquetaHora.setText(Consultas.revisa());
+            etiquetaTemperatura.setText(Consultas.revision());
+        } catch (Exception ex) {
+            Logger.getLogger(Clima.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -131,6 +157,7 @@ public class Clima extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField etiquetaHora;
     private javax.swing.JTextField etiquetaTemperatura;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
