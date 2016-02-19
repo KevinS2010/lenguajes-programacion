@@ -39,6 +39,8 @@ public class Clima extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 204));
+
         jLabel1.setText("Hora");
 
         jLabel2.setText("Temp. Actual");

@@ -9,18 +9,27 @@ public class MiPrimeraConexion {
         URL url=new URL("http://www.weatherlink.com/user/sierraguadalupe/index.php?view=summary&headers=0");
         HttpURLConnection con=(HttpURLConnection) url.openConnection();
         InputStream input=con.getInputStream();
+        
         InputStreamReader isr=new InputStreamReader(input);
         BufferedReader reader=new BufferedReader(isr);
-        int renglones=0;
+        String lineaActual="No ha leido nada";
         boolean encontrado=false;
-        String temperaturas[]=new String[5];
-        while(reader.readLine()!=null){
-            String rengloActual=reader.readLine();
-           if(rengloActual.contains("Outside Te")){
-               encontrado=true;
-               System.out.println("Si existe este renglon");
-           }
-        renglones ++;
+        int miLinea=0;
+        while((lineaActual=reader.readLine())!=null){
+            if(encontrado && miLinea<=0){
+                //Vamos a despedazar la linea
+                int indice=lineaActual.indexOf(">");
+                int indice2=lineaActual.indexOf("</");
+                String tempActual=lineaActual.substring(indice+1,indice2);
+                System.out.println(tempActual);
+                miLinea++;
+                
+            }
+            if(lineaActual.contains("Outside Temp")){
+                encontrado=true;
+                System.out.println("Dato encontrado!!");
+                
+            }
        }
        /*String hola="<td width=class summary_data>21.2 C</td>"; 
        int indice1=hola.indexOf("summary_data");
