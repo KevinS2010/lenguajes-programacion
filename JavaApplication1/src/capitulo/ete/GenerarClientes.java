@@ -22,7 +22,5 @@ public class GenerarClientes {
             }         
             return clientes;           
     }
-          //for(int i=0;i<clientes.length;i++){
-                
-            //}         
+           
 }
