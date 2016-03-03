@@ -13,7 +13,8 @@ public class GenerarClientes {
             clientes[2]=new Cliente("Laura","Gomez", 30, 70000, 
                         new Direccion("R-1", 43, "Cloacalco","5530385803"));                
             for(int i=0;i<clientes.length;i++){
-                JOptionPane.showMessageDialog(null,"Nombre: "+clientes[i].getNombre()+"\n Apellido: "+clientes[i].getaPaterno()
+                JOptionPane.showMessageDialog(null,"Nombre: "+clientes[i].getNombre()
+                        +"\n Apellido: "+clientes[i].getaPaterno()
                 +"\n Edad: "+clientes[i].getEdad()+"\n Sueldo"+clientes[i].getSueldo()
                 +"\n Direccion "+"\nCalle: "+clientes[i].getDireccion().getCalle()
                 +"\n Numero: "+clientes[i].getDireccion().getNumero()
