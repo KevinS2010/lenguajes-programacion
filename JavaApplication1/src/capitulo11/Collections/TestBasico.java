@@ -5,25 +5,23 @@
  */
 package capitulo11.Collections;
 import java.util.*;
+import javax.swing.JOptionPane;
+import javax.swing.JRadioButton;
 /**
  *
  * @author T-101
  */
 public class TestBasico extends javax.swing.JFrame {
-
+ArrayList<Pregunta> preguntas;
+JRadioButton radios[]=new JRadioButton[4];
+int numero=0;
     /**
      * Creates new form TestBasico
      */
     public TestBasico() {
+          preguntas= GeneradorPreguntas.obtenerTodasLasPreguntas();
         initComponents();
-        ArrayList<Pregunta> preguntas=
-        GeneradorPreguntas.obtenerTodasLasPreguntas();
-        pregunta.setText(preguntas.get(0).getTitulo());
-        
-        radio0.setText(preguntas.get(0).getOpciones().get(0).getTitulo());
-        radio1.setText(preguntas.get(0).getOpciones().get(1).getTitulo());
-        radio2.setText(preguntas.get(0).getOpciones().get(2).getTitulo());
-        radio3.setText(preguntas.get(0).getOpciones().get(3).getTitulo());
+      iniciarTodos();
     }
 
     /**
@@ -139,16 +137,17 @@ public class TestBasico extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        
-            
+            numero++;
+            iniciarTodos();
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        for(int i=0;i<4;i++){
+     boolean respuesta=GeneradorPreguntas.checarRespuesta(preguntas.get(numero),radios);
+        JOptionPane.showMessageDialog(rootPane, "Respuesta: "+respuesta);
           
-        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -197,4 +196,31 @@ public class TestBasico extends javax.swing.JFrame {
     private javax.swing.JRadioButton radio2;
     private javax.swing.JRadioButton radio3;
     // End of variables declaration//GEN-END:variables
+
+public void iniciarTodos(){
+ 
+    if(numero<preguntas.size()){
+      radios[0]=radio0;
+        radios[1]=radio1;
+        radios[2]=radio2;
+        radios[3]=radio3;
+        
+ 
+        pregunta.setText(preguntas.get(numero).getTitulo());
+        radio0.setText(preguntas.get(numero).getOpciones().get(0).getTitulo());
+        radio1.setText(preguntas.get(numero).getOpciones().get(1).getTitulo());
+        radio2.setText(preguntas.get(numero).getOpciones().get(2).getTitulo());
+        radio3.setText(preguntas.get(numero).getOpciones().get(3).getTitulo());
+        
+        ArrayList<Pregunta> preguntas=
+        GeneradorPreguntas.obtenerTodasLasPreguntas();
+      
+        
+        radio0.setText(preguntas.get(numero).getOpciones().get(0).getTitulo());
+        radio1.setText(preguntas.get(numero).getOpciones().get(1).getTitulo());
+        radio2.setText(preguntas.get(numero).getOpciones().get(2).getTitulo());
+        radio3.setText(preguntas.get(numero).getOpciones().get(3).getTitulo());
+          
+    }
+}
 }
