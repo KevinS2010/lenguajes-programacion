@@ -49,6 +49,11 @@ int numero=0;
 
         buttonGroup1.add(radio0);
         radio0.setText("jRadioButton1");
+        radio0.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                radio0ActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(radio1);
         radio1.setText("jRadioButton2");
@@ -149,6 +154,10 @@ int numero=0;
           
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void radio0ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radio0ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_radio0ActionPerformed
 
     /**
      * @param args the command line arguments
