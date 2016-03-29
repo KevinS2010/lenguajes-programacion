@@ -23,6 +23,16 @@ public class GeneradorPreguntas {
         Opcion o3p2=new Opcion("c)Seul",false);
         Opcion o4p2=new Opcion("d)Pyunging",false);
         
+        Opcion o1p3=new Opcion("a)Kioto",false);
+        Opcion o2p3=new Opcion("b)Osaka",false);
+        Opcion o3p3=new Opcion("c)Nagoya",false);
+        Opcion o4p3=new Opcion("d)Tokio",true);
+        
+        Opcion o1p4=new Opcion("a)Ottawa",true);
+        Opcion o2p4=new Opcion("b)Toronto",false);
+        Opcion o3p4=new Opcion("c)Montreal",false);
+        Opcion o4p4=new Opcion("d)Vancouver",false);
+        
         ArrayList<Opcion>opciones=new ArrayList<Opcion>();
         opciones.add(op1);
         opciones.add(op2);
@@ -36,14 +46,28 @@ public class GeneradorPreguntas {
         opcionesp2.add(o3p2);
         opcionesp2.add(o4p2);
         
+        ArrayList<Opcion>opcionesp3=new ArrayList<Opcion>();
+        opcionesp3.add(o1p3);
+        opcionesp3.add(o2p3);
+        opcionesp3.add(o3p3);
+        opcionesp3.add(o4p3);
+        
+        ArrayList<Opcion>opcionesp4=new ArrayList<Opcion>();
+        opcionesp4.add(o1p4);
+        opcionesp4.add(o2p4);
+        opcionesp4.add(o3p4);
+        opcionesp4.add(o4p4);
+        
         Pregunta p1=new Pregunta("Capital de Rusia", opciones);
         Pregunta p2=new Pregunta("Capital de China", opcionesp2);
-        
+        Pregunta p3=new Pregunta("Capital de Japon", opcionesp3);
+        Pregunta p4=new Pregunta("Capital de Canada", opcionesp4);
         
         ArrayList<Pregunta> preguntas=new ArrayList<Pregunta>();
         preguntas.add(p1);
         preguntas.add(p2);
-        
+        preguntas.add(p3);
+        preguntas.add(p4);
         return preguntas;
     }
     public static boolean checarRespuesta(Pregunta p, JRadioButton[]radios){
