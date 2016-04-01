@@ -1,19 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package capitulo11.Collections;
 
 import java.io.*;
 import java.util.*;
 public class PersistenciaUsuario {
     ArrayList<Usuario>usuarios;
-
     public PersistenciaUsuario() {
         usuarios =new ArrayList<>();
     }
-    
     //Primero el metodo de buscar todos
     ArrayList<Usuario>buscarTodos()throws Exception{
         
