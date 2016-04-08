@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package capitulo11.Collections;
+import java.awt.Color;
 import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,7 +18,7 @@ public class TestBasico extends javax.swing.JFrame {
 ArrayList<Pregunta> preguntas;
 JRadioButton radios[]=new JRadioButton[4];
 int numero=0;
-int x=60;
+int x=30;
     /**
      * Creates new form TestBasico
      */
@@ -28,11 +29,21 @@ int x=60;
             @Override
             public void run(){
                 while(true){
-                   x--;
+                   
                    if(x<=0)dispose();
                    etiquetaReloj.setText(""+x);
+                   
                    try{
-                      Thread.sleep(1000); 
+                      iniciarTodos(); 
+                        Thread.sleep(1000); 
+                        if(x<=10){
+                            etiquetaReloj.setForeground(Color.red);
+                        }
+                        else{
+                            etiquetaReloj.setForeground(Color.blue); 
+                        }
+                        x--;
+                      numero++;
                    }catch(InterruptedException e){
                        Logger.getLogger(TestBasico.class.getName()).log(Level.SEVERE,null,e);
                 }
@@ -41,7 +52,6 @@ int x=60;
             }
         });
         t1.start();
-      iniciarTodos();
     }
 
     /**
@@ -264,5 +274,9 @@ public void iniciarTodos(){
         radio3.setText(preguntas.get(numero).getOpciones().get(3).getTitulo());
           
     }
-}
+    
+  }
+    public void calificar(){
+        
+    }
 }
