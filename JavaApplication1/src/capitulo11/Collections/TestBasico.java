@@ -23,27 +23,28 @@ int x=30;
      * Creates new form TestBasico
      */
     public TestBasico() {
-          preguntas= GeneradorPreguntas.obtenerTodasLasPreguntas();
         initComponents();
+          preguntas= GeneradorPreguntas.obtenerTodasLasPreguntas();
+          pregunta.setText(preguntas.get(numero).getTitulo());
+        //initComponents();
+          
         Thread t1=new Thread(new Runnable(){
             @Override
             public void run(){
                 while(true){
+                    iniciarTodos();
+                 x--;
+                 if(x<=0){
+                    numero++;
+                     x=30;
+                    
+                 }
                    
-                   if(x<=0)dispose();
                    etiquetaReloj.setText(""+x);
    
                    try{
-                      iniciarTodos(); 
                         Thread.sleep(1000); 
-                        if(x<=10){
-                            etiquetaReloj.setForeground(Color.red);
-                        }
-                        else{
-                            etiquetaReloj.setForeground(Color.blue); 
-                        }
-                        x--;
-                      numero++;
+                        
                    }catch(InterruptedException e){
                        Logger.getLogger(TestBasico.class.getName()).log(Level.SEVERE,null,e);
                 }
@@ -51,6 +52,7 @@ int x=30;
                 }
             }
         });
+       
         t1.start();
     }
 
